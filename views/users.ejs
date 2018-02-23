@@ -1,0 +1,49 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addUser();">Добавить пользователя</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="10" cellspacing="7">
+                <tr>
+                    <th width="50px">ID</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Логин</th>
+                    <th>Пароль</th>
+                    <th>Город</th>
+                    <th width="120px">Функции</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].name%></td>
+                    <td><%=data[i].family%></td>
+                    <td><%=data[i].login%></td>
+                    <td><%=data[i].password%></td>
+                    <td><%=data[i].city%></td>
+                    <td>
+                        <a class="a-inside edit" href="../customers/edit/<%=data[i].id%>">Edit</a>                      
+                        <a class="a-inside delete" href="../customers/delete/<%=data[i].id%>">Delete</a>
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">Нет пользователей!</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>
