@@ -17,8 +17,6 @@ exports.list = function(req, res){
                 
            
          });
-         
-         //console.log(query.sql);
     });
   
 };
@@ -42,9 +40,7 @@ exports.edit = function(req, res){
             res.render('edit_user',{page_title:"Изменение данных",data:rows});
                 
            
-         });
-         
-         //console.log(query.sql);
+         });         
     }); 
 };
 
@@ -71,12 +67,9 @@ exports.save = function(req,res){
           if (err)
               console.log("Error inserting : %s ",err );
          
-          res.redirect('/customers');
+          res.redirect('/');
           
         });
-        
-       // console.log(query.sql); get raw query
-    
     });
 };
 
@@ -103,7 +96,7 @@ exports.save_edit = function(req,res){
           if (err)
               console.log("Error Updating : %s ",err );
          
-          res.redirect('/customers');
+          res.redirect('/');
           
         });
     
@@ -123,7 +116,7 @@ exports.delete_customer = function(req,res){
              if(err)
                  console.log("Error deleting : %s ",err );
             
-             res.redirect('/customers');
+             res.redirect('/');
              
         });
         

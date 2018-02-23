@@ -42,7 +42,7 @@ app.use(
         
         host: 'localhost', //'localhost',
         user: 'root',
-        password : '',
+        password : '742122a',
         // port : 3306, //port mysql
         database:'users'
 
@@ -53,14 +53,17 @@ app.use(
 
 
 app.get('/', index.list);
-app.get('/customers/add', index.add);
-app.post('/customers/add', index.save);
-app.get('/customers/delete/:id', index.delete_customer);
-app.get('/customers/edit/:id', index.edit);
-app.post('/customers/edit/:id',index.save_edit);
+app.get('/user/add', index.add);
+app.post('/user/add', index.save);
+app.get('/user/delete/:id', index.delete_customer);
+app.get('/user/edit/:id', index.edit);
+app.post('/user/edit/:id',index.save_edit);
 
 
 app.use(app.router);
+app.use(function(req,res,next){
+    res.status(404).send('404 NOT FOUND');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
